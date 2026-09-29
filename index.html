@@ -15,68 +15,92 @@
     }
 
     body {
-      background: #f4f7fb;
+      background: linear-gradient(180deg, #061b18, #f4f8f7 35%);
       color: #222;
+      min-height: 100vh;
     }
 
     header {
-      background: linear-gradient(135deg, #075e54, #128c7e);
       color: white;
-      padding: 28px 20px;
       text-align: center;
+      padding: 35px 20px 45px;
     }
 
     header h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
+      font-size: 32px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
     }
 
     header p {
       font-size: 15px;
-      opacity: 0.95;
+      opacity: 0.9;
     }
 
     .container {
       width: 92%;
-      max-width: 500px;
-      margin: 25px auto;
+      max-width: 520px;
+      margin: -15px auto 30px;
     }
 
     .card {
       background: white;
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 22px;
       margin-bottom: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.10);
     }
 
     .card h2 {
+      color: #075e54;
       font-size: 20px;
       margin-bottom: 18px;
-      color: #075e54;
+    }
+
+    .operators {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .operator {
+      padding: 14px 5px;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      background: white;
+      transition: .2s;
+    }
+
+    .operator.active {
+      background: #075e54;
+      color: white;
+      border-color: #075e54;
+      transform: translateY(-2px);
     }
 
     label {
       display: block;
-      margin-bottom: 7px;
-      font-weight: bold;
       font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
     }
 
-    select,
     input {
       width: 100%;
       padding: 14px;
       border: 1px solid #ddd;
-      border-radius: 10px;
+      border-radius: 11px;
       font-size: 16px;
       margin-bottom: 17px;
       outline: none;
     }
 
-    select:focus,
     input:focus {
-      border-color: #128c7e;
+      border-color: #0b8f7a;
+      box-shadow: 0 0 0 3px rgba(11,143,122,.10);
     }
 
     .values {
@@ -87,36 +111,32 @@
     }
 
     .value-btn {
-      padding: 12px 5px;
-      border: 2px solid #e0e0e0;
+      padding: 13px 5px;
+      border: 2px solid #e2e7e6;
       background: white;
-      border-radius: 10px;
+      border-radius: 11px;
       cursor: pointer;
       font-weight: bold;
       color: #075e54;
+      transition: .2s;
     }
 
-    .value-btn:hover,
     .value-btn.active {
-      background: #128c7e;
+      background: #0b8f7a;
       color: white;
-      border-color: #128c7e;
-    }
-
-    .custom-value {
-      margin-top: 5px;
+      border-color: #0b8f7a;
     }
 
     .summary {
-      background: #f0f8f7;
+      background: #eef8f5;
+      border-left: 5px solid #0b8f7a;
       border-radius: 12px;
       padding: 15px;
-      margin-top: 5px;
       margin-bottom: 18px;
     }
 
     .summary p {
-      margin: 7px 0;
+      margin: 8px 0;
       font-size: 15px;
     }
 
@@ -124,68 +144,79 @@
       color: #075e54;
     }
 
+    .payment {
+      background: linear-gradient(135deg, #075e54, #0b8f7a);
+      color: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .payment h3 {
+      margin-bottom: 12px;
+      font-size: 19px;
+    }
+
+    .payment-number {
+      background: rgba(255,255,255,.15);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin: 12px 0;
+    }
+
+    .payment small {
+      display: block;
+      line-height: 1.5;
+      opacity: .95;
+    }
+
     .whatsapp-btn {
       width: 100%;
       border: none;
       background: #25d366;
       color: white;
-      padding: 16px;
-      border-radius: 12px;
+      padding: 17px;
+      border-radius: 13px;
       font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.2s;
+      box-shadow: 0 5px 15px rgba(37,211,102,.25);
+      transition: .2s;
     }
 
     .whatsapp-btn:hover {
       background: #1ebe5d;
-      transform: scale(1.01);
+      transform: translateY(-2px);
     }
 
-    .info {
-      text-align: center;
+    .steps {
+      line-height: 1.7;
       font-size: 14px;
-      color: #666;
-      line-height: 1.6;
+      color: #555;
     }
 
-    .operators {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 5px;
-    }
-
-    .operator {
-      border: 2px solid #eee;
-      padding: 13px 5px;
-      text-align: center;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .operator.active {
-      border-color: #128c7e;
-      background: #e9f7f5;
+    .steps strong {
       color: #075e54;
     }
 
     footer {
       text-align: center;
-      padding: 25px 15px;
+      padding: 20px;
       color: #777;
       font-size: 13px;
     }
 
     @media (max-width: 400px) {
-      header h1 {
-        font-size: 25px;
-      }
-
       .values {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      header h1 {
+        font-size: 27px;
       }
     }
   </style>
@@ -195,41 +226,47 @@
 
   <header>
     <h1>📱 KAMBA RECARGAS</h1>
-    <p>Recargas móveis de forma simples e rápida</p>
+    <p>Recargas rápidas, simples e seguras.</p>
   </header>
 
   <div class="container">
 
     <div class="card">
-      <h2>1. Escolha a operadora</h2>
+      <h2>📡 1. Escolha a operadora</h2>
 
       <div class="operators">
 
-        <div class="operator active" onclick="selecionarOperadora('Unitel', this)">
+        <div class="operator active"
+             onclick="selecionarOperadora('Unitel', this)">
           Unitel
         </div>
 
-        <div class="operator" onclick="selecionarOperadora('Africell', this)">
+        <div class="operator"
+             onclick="selecionarOperadora('Africell', this)">
           Africell
         </div>
 
-        <div class="operator" onclick="selecionarOperadora('Movicel', this)">
+        <div class="operator"
+             onclick="selecionarOperadora('Movicel', this)">
           Movicel
         </div>
 
       </div>
     </div>
 
+
     <div class="card">
 
-      <h2>2. Dados da recarga</h2>
+      <h2>📲 2. Dados da recarga</h2>
 
-      <label for="numero">Número a recarregar</label>
+      <label for="numero">
+        Número que deseja recarregar
+      </label>
 
       <input
         type="tel"
         id="numero"
-        placeholder="Ex.: 923 000 000"
+        placeholder="Ex.: 948 000 000"
         maxlength="15"
         oninput="atualizarResumo()"
       >
@@ -238,27 +275,33 @@
 
       <div class="values">
 
-        <button class="value-btn" onclick="selecionarValor(500, this)">
+        <button class="value-btn"
+                onclick="selecionarValor(500, this)">
           500 Kz
         </button>
 
-        <button class="value-btn" onclick="selecionarValor(1000, this)">
+        <button class="value-btn"
+                onclick="selecionarValor(1000, this)">
           1.000 Kz
         </button>
 
-        <button class="value-btn" onclick="selecionarValor(1500, this)">
+        <button class="value-btn"
+                onclick="selecionarValor(1500, this)">
           1.500 Kz
         </button>
 
-        <button class="value-btn" onclick="selecionarValor(2000, this)">
+        <button class="value-btn"
+                onclick="selecionarValor(2000, this)">
           2.000 Kz
         </button>
 
-        <button class="value-btn" onclick="selecionarValor(5000, this)">
+        <button class="value-btn"
+                onclick="selecionarValor(5000, this)">
           5.000 Kz
         </button>
 
-        <button class="value-btn" onclick="selecionarValor(10000, this)">
+        <button class="value-btn"
+                onclick="selecionarValor(10000, this)">
           10.000 Kz
         </button>
 
@@ -269,7 +312,6 @@
       </label>
 
       <input
-        class="custom-value"
         type="number"
         id="valorPersonalizado"
         placeholder="Ex.: 3000"
@@ -279,9 +321,36 @@
 
     </div>
 
+
     <div class="card">
 
-      <h2>Resumo do pedido</h2>
+      <h2>💳 3. Pagamento</h2>
+
+      <div class="payment">
+
+        <h3>Multicaixa Express</h3>
+
+        <p>
+          Faça o pagamento para o número:
+        </p>
+
+        <div class="payment-number">
+          948 253 347
+        </div>
+
+        <small>
+          Depois de efetuar o pagamento, envie o
+          comprovativo pelo WhatsApp para confirmação.
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>📋 Resumo do pedido</h2>
 
       <div class="summary">
 
@@ -302,31 +371,56 @@
 
       </div>
 
-      <button class="whatsapp-btn" onclick="enviarWhatsApp()">
+      <button class="whatsapp-btn"
+              onclick="enviarWhatsApp()">
+
         💬 PEDIR RECARGA PELO WHATSAPP
+
       </button>
 
     </div>
 
-    <div class="card info">
 
-      <p>
-        Após enviar o pedido, um atendente do
-        <strong>KAMBA RECARGAS</strong> irá confirmar
-        o pagamento e realizar a recarga.
-      </p>
+    <div class="card">
 
-      <br>
+      <h2>⚡ Como funciona?</h2>
 
-      <p>
-        ⚡ Atendimento rápido<br>
-        🔒 Processo simples e seguro<br>
-        📲 Pedido diretamente pelo WhatsApp
-      </p>
+      <div class="steps">
+
+        <p>
+          <strong>1.</strong> Escolha a operadora.
+        </p>
+
+        <p>
+          <strong>2.</strong> Indique o número que deseja
+          recarregar.
+        </p>
+
+        <p>
+          <strong>3.</strong> Escolha o valor da recarga.
+        </p>
+
+        <p>
+          <strong>4.</strong> Faça o pagamento pelo
+          Multicaixa Express.
+        </p>
+
+        <p>
+          <strong>5.</strong> Envie o comprovativo pelo
+          WhatsApp.
+        </p>
+
+        <p>
+          <strong>6.</strong> Após a confirmação,
+          a recarga será efetuada.
+        </p>
+
+      </div>
 
     </div>
 
   </div>
+
 
   <footer>
     © 2026 KAMBA RECARGAS — Todos os direitos reservados.
@@ -371,7 +465,8 @@
 
     function valorPersonalizado() {
 
-      const campo = document.getElementById("valorPersonalizado");
+      const campo =
+        document.getElementById("valorPersonalizado");
 
       if (campo.value !== "") {
 
@@ -384,7 +479,6 @@
       } else {
 
         valor = 0;
-
       }
 
       atualizarResumo();
@@ -393,15 +487,17 @@
 
     function atualizarResumo() {
 
-      const numero = document.getElementById("numero").value;
+      const numero =
+        document.getElementById("numero").value;
 
-      document.getElementById("resumoOperadora").textContent =
-        operadora;
+      document.getElementById("resumoOperadora")
+        .textContent = operadora;
 
-      document.getElementById("resumoNumero").textContent =
-        numero || "---";
+      document.getElementById("resumoNumero")
+        .textContent = numero || "---";
 
-      document.getElementById("resumoValor").textContent =
+      document.getElementById("resumoValor")
+        .textContent =
         valor > 0
         ? valor.toLocaleString("pt-AO") + " Kz"
         : "---";
@@ -410,11 +506,15 @@
 
     function enviarWhatsApp() {
 
-      const numero = document.getElementById("numero").value.trim();
+      const numero =
+        document.getElementById("numero").value.trim();
+
 
       if (numero === "") {
 
-        alert("Por favor, indique o número que deseja recarregar.");
+        alert(
+          "Por favor, indique o número que deseja recarregar."
+        );
 
         document.getElementById("numero").focus();
 
@@ -424,20 +524,22 @@
 
       if (valor <= 0) {
 
-        alert("Por favor, escolha ou indique o valor da recarga.");
+        alert(
+          "Por favor, escolha ou indique o valor da recarga."
+        );
 
         return;
       }
 
 
       /*
-       * COLOQUE AQUI O NÚMERO DE WHATSAPP DO KAMBA RECARGAS.
+       * NÚMERO DE WHATSAPP DO KAMBA RECARGAS
        *
-       * Exemplo:
-       * 244923123456
+       * SUBSTITUA 244XXXXXXXXX PELO SEU NÚMERO
+       * DE WHATSAPP, CASO AINDA NÃO O TENHA FEITO.
        */
 
-      const whatsapp = "244948253347";
+      const whatsapp = "244XXXXXXXXX";
 
 
       const mensagem =
@@ -448,7 +550,11 @@
         "💰 Valor: " +
         valor.toLocaleString("pt-AO") +
         " Kz%0A%0A" +
-        "Aguardo a confirmação. Obrigado!";
+        "💳 Pagamento: Multicaixa Express%0A" +
+        "📲 Número de pagamento: 948 253 347%0A%0A" +
+        "Depois de efetuar o pagamento, " +
+        "enviarei o comprovativo.%0A%0A" +
+        "Obrigado!";
 
 
       const url =
