@@ -1,28 +1,467 @@
-<!doctype html><html lang="pt-AO"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kamba Recargas</title><style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#f5f7fb;color:#152033}button,input,select{font:inherit}.top{background:#111827;color:#fff;padding:22px 18px}.brand{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between}.logo{font-size:22px;font-weight:800}.logo span{color:#22c55e}.badge{font-size:12px;background:#f59e0b;color:#111827;padding:6px 9px;border-radius:999px;font-weight:700}.wrap{max-width:1050px;margin:0 auto;padding:28px 18px}.hero{background:#fff;border-radius:22px;padding:32px;box-shadow:0 8px 30px #17203312;margin-bottom:22px}.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 10px}.hero p{color:#637083;margin:0 0 24px}.btn{border:0;border-radius:12px;padding:13px 18px;background:#16a34a;color:#fff;font-weight:800;cursor:pointer}.btn.secondary{background:#eef2f7;color:#152033}.btn.warn{background:#f59e0b;color:#111827}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.card{background:#fff;border-radius:18px;padding:24px;box-shadow:0 8px 30px #1720330d}.card h2{margin-top:0}.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.op{border:2px solid #e5eaf0;border-radius:14px;padding:18px 8px;background:#fff;cursor:pointer;font-weight:800}.op.active{border-color:#16a34a;background:#f0fdf4}.field{margin:16px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:13px;border:1px solid #d7dee8;border-radius:11px;outline:none}.values{display:flex;flex-wrap:wrap;gap:8px}.value{border:1px solid #d7dee8;background:#fff;padding:11px 14px;border-radius:10px;cursor:pointer}.value.active{background:#dcfce7;border-color:#16a34a}.summary{background:#f8fafc;border-radius:14px;padding:16px;margin:18px 0}.row{display:flex;justify-content:space-between;margin:9px 0}.total{font-size:20px;font-weight:900}.status{padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800;background:#fef3c7}.success{background:#ecfdf5;border:1px solid #bbf7d0;border-radius:14px;padding:18px}.hidden{display:none}.admin table{width:100%;border-collapse:collapse}.admin th,.admin td{text-align:left;padding:11px;border-bottom:1px solid #edf0f4;font-size:13px}.footer{text-align:center;color:#7a8493;padding:30px}.step{display:flex;gap:10px;margin:9px 0;color:#566273}.step b{color:#16a34a}.chat{display:flex;flex-direction:column;gap:10px}.bubble{padding:12px 14px;border-radius:14px;max-width:90%;background:#eef2f7}.bubble.me{margin-left:auto;background:#dcfce7}.small{font-size:12px;color:#778295}@media(max-width:760px){.grid{grid-template-columns:1fr}.ops{grid-template-columns:1fr}.hero,.card{padding:20px}.admin{overflow:auto}}
-</style></head><body>
-<header class="top"><div class="brand"><div class="logo">KAMBA <span>RECARGAS</span></div><span class="badge">MODO TESTE</span></div></header>
-<main class="wrap">
-<section class="hero"><h1>Recargas rápidas, onde estiveres.</h1><p>Compre recargas telefónicas de forma simples. Este protótipo está em ambiente de demonstração.</p><button class="btn" onclick="document.getElementById('comprar').scrollIntoView({behavior:'smooth'})">COMPRAR RECARGA</button></section>
-<div class="grid">
-<section class="card" id="comprar"><h2>Comprar recarga</h2><div class="field"><label>1. Escolha a operadora</label><div class="ops"><button class="op" data-op="UNITEL">🟢<br>UNITEL</button><button class="op" data-op="AFRICELL">🔵<br>AFRICELL</button><button class="op" data-op="MOVICEL">🟠<br>MOVICEL</button></div></div>
-<div class="field"><label>Número de telefone</label><input id="phone" placeholder="923 XXX XXX" inputmode="numeric"></div>
-<div class="field"><label>Valor da recarga</label><div class="values"><button class="value" data-v="500">500 Kz</button><button class="value" data-v="1000">1.000 Kz</button><button class="value" data-v="2000">2.000 Kz</button><button class="value" data-v="5000">5.000 Kz</button><button class="value" data-v="10000">10.000 Kz</button></div><input id="custom" class="field" placeholder="Outro valor (Kz)" inputmode="numeric"></div>
-<div class="summary"><div class="row"><span>Operadora</span><b id="sop">—</b></div><div class="row"><span>Número</span><b id="sphone">—</b></div><div class="row"><span>Valor</span><b id="samount">—</b></div><div class="row total"><span>Total</span><span id="stotal">—</span></div></div><label class="small"><input type="checkbox" id="confirm"> Confirmo que o número informado está correto.</label><br><br><button class="btn" id="create">CONFIRMAR PEDIDO</button></section>
-<section class="card"><h2>Como funciona?</h2><div class="step"><b>1.</b> Escolha a operadora</div><div class="step"><b>2.</b> Digite o número</div><div class="step"><b>3.</b> Escolha o valor</div><div class="step"><b>4.</b> Confirme o pedido</div><div class="step"><b>5.</b> Efetue o pagamento</div><hr><h3>Atendimento</h3><p class="small">O chat e a integração WhatsApp podem ser adicionados numa próxima versão.</p><button class="btn secondary" onclick="alert('Atendimento humano será integrado na próxima versão.')">FALAR COM ATENDIMENTO</button></section></div>
-<section class="card hidden" id="order" style="margin-top:22px"><h2>Pedido criado</h2><div id="orderBox"></div></section>
-<section class="card admin" style="margin-top:22px"><h2>Painel administrativo — demonstração</h2><p class="small">Pedidos guardados apenas neste navegador.</p><div id="adminTable"></div></section>
-</main><footer class="footer">Kamba Recargas · Angola · Protótipo MVP</footer>
-<script>
-let op='',amount=0;const orders=JSON.parse(localStorage.getItem('kamba_orders')||'[]');
-const money=n=>new Intl.NumberFormat('pt-AO').format(n)+' Kz';
-function refresh(){document.getElementById('sop').textContent=op||'—';document.getElementById('sphone').textContent=document.getElementById('phone').value||'—';document.getElementById('samount').textContent=amount?money(amount):'—';document.getElementById('stotal').textContent=amount?money(amount):'—';renderAdmin()}
-document.querySelectorAll('.op').forEach(b=>b.onclick=()=>{document.querySelectorAll('.op').forEach(x=>x.classList.remove('active'));b.classList.add('active');op=b.dataset.op;refresh()});
-document.querySelectorAll('.value').forEach(b=>b.onclick=()=>{document.querySelectorAll('.value').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('custom').value='';amount=+b.dataset.v;refresh()});
-document.getElementById('custom').oninput=e=>{document.querySelectorAll('.value').forEach(x=>x.classList.remove('active'));amount=parseInt(e.target.value||0);refresh()};document.getElementById('phone').oninput=refresh;
-document.getElementById('create').onclick=()=>{const phone=document.getElementById('phone').value.trim();if(!op)return alert('Escolha a operadora.');if(!/^9\d{8}$/.test(phone.replace(/\D/g,'')))return alert('Digite um número angolano válido com 9 dígitos, por exemplo 923123456.');if(!amount||amount<100)return alert('Informe um valor válido.');if(!document.getElementById('confirm').checked)return alert('Confirme que o número está correto.');const id='KMB-'+Date.now().toString().slice(-8);const order={id,op,phone:phone.replace(/\D/g,''),amount,status:'Pendente',created:new Date().toLocaleString('pt-AO')};orders.unshift(order);localStorage.setItem('kamba_orders',JSON.stringify(orders));showOrder(order)};
-function showOrder(o){const sec=document.getElementById('order');sec.classList.remove('hidden');document.getElementById('orderBox').innerHTML=`<div class="summary"><div class="row"><span>Pedido</span><b>${o.id}</b></div><div class="row"><span>Operadora</span><b>${o.op}</b></div><div class="row"><span>Número</span><b>${o.phone}</b></div><div class="row total"><span>Total</span><span>${money(o.amount)}</span></div></div><button class="btn warn" onclick="pay('${o.id}')">SIMULAR PAGAMENTO</button><p class="small">Ambiente de demonstração — nenhum pagamento real será efetuado.</p>`;sec.scrollIntoView({behavior:'smooth'});renderAdmin()}
-function pay(id){const o=orders.find(x=>x.id===id);if(!o)return;o.status='Pago';localStorage.setItem('kamba_orders',JSON.stringify(orders));document.getElementById('orderBox').innerHTML=`<div class="success"><h3>Pagamento confirmado</h3><p>Pedido <b>${o.id}</b> de ${money(o.amount)} recebido em modo de teste.</p><p><b>Recarga em processamento.</b></p></div><br><button class="btn" onclick="finish('${o.id}')">CONCLUIR RECARGA (TESTE)</button>`;renderAdmin()}
-function finish(id){const o=orders.find(x=>x.id===id);o.status='Concluído';localStorage.setItem('kamba_orders',JSON.stringify(orders));document.getElementById('orderBox').innerHTML=`<div class="success"><h2>🎉 Recarga concluída</h2><p>Operadora: <b>${o.op}</b></p><p>Número: <b>${o.phone}</b></p><p>Valor: <b>${money(o.amount)}</b></p><p>Pedido: <b>${o.id}</b></p></div><br><button class="btn" onclick="location.reload()">NOVA RECARGA</button>`;renderAdmin()}
-function renderAdmin(){const el=document.getElementById('adminTable');if(!orders.length){el.innerHTML='<p class="small">Ainda não existem pedidos.</p>';return}el.innerHTML='<table><thead><tr><th>Pedido</th><th>Operadora</th><th>Número</th><th>Valor</th><th>Estado</th></tr></thead><tbody>'+orders.map(o=>`<tr><td>${o.id}</td><td>${o.op}</td><td>${o.phone}</td><td>${money(o.amount)}</td><td><span class="status">${o.status}</span></td></tr>`).join('')+'</tbody></table>'}refresh();
-</script></body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KAMBA RECARGAS</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #075e54, #128c7e);
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 500px;
+      margin: 25px auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 18px;
+      color: #075e54;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-bottom: 17px;
+      outline: none;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: #128c7e;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+
+    .value-btn {
+      padding: 12px 5px;
+      border: 2px solid #e0e0e0;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #075e54;
+    }
+
+    .value-btn:hover,
+    .value-btn.active {
+      background: #128c7e;
+      color: white;
+      border-color: #128c7e;
+    }
+
+    .custom-value {
+      margin-top: 5px;
+    }
+
+    .summary {
+      background: #f0f8f7;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 5px;
+      margin-bottom: 18px;
+    }
+
+    .summary p {
+      margin: 7px 0;
+      font-size: 15px;
+    }
+
+    .summary strong {
+      color: #075e54;
+    }
+
+    .whatsapp-btn {
+      width: 100%;
+      border: none;
+      background: #25d366;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
+      transform: scale(1.01);
+    }
+
+    .info {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .operators {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    .operator {
+      border: 2px solid #eee;
+      padding: 13px 5px;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .operator.active {
+      border-color: #128c7e;
+      background: #e9f7f5;
+      color: #075e54;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 400px) {
+      header h1 {
+        font-size: 25px;
+      }
+
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>📱 KAMBA RECARGAS</h1>
+    <p>Recargas móveis de forma simples e rápida</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>1. Escolha a operadora</h2>
+
+      <div class="operators">
+
+        <div class="operator active" onclick="selecionarOperadora('Unitel', this)">
+          Unitel
+        </div>
+
+        <div class="operator" onclick="selecionarOperadora('Africell', this)">
+          Africell
+        </div>
+
+        <div class="operator" onclick="selecionarOperadora('Movicel', this)">
+          Movicel
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+
+      <h2>2. Dados da recarga</h2>
+
+      <label for="numero">Número a recarregar</label>
+
+      <input
+        type="tel"
+        id="numero"
+        placeholder="Ex.: 923 000 000"
+        maxlength="15"
+        oninput="atualizarResumo()"
+      >
+
+      <label>Escolha o valor</label>
+
+      <div class="values">
+
+        <button class="value-btn" onclick="selecionarValor(500, this)">
+          500 Kz
+        </button>
+
+        <button class="value-btn" onclick="selecionarValor(1000, this)">
+          1.000 Kz
+        </button>
+
+        <button class="value-btn" onclick="selecionarValor(1500, this)">
+          1.500 Kz
+        </button>
+
+        <button class="value-btn" onclick="selecionarValor(2000, this)">
+          2.000 Kz
+        </button>
+
+        <button class="value-btn" onclick="selecionarValor(5000, this)">
+          5.000 Kz
+        </button>
+
+        <button class="value-btn" onclick="selecionarValor(10000, this)">
+          10.000 Kz
+        </button>
+
+      </div>
+
+      <label for="valorPersonalizado">
+        Ou indique outro valor
+      </label>
+
+      <input
+        class="custom-value"
+        type="number"
+        id="valorPersonalizado"
+        placeholder="Ex.: 3000"
+        min="100"
+        oninput="valorPersonalizado()"
+      >
+
+    </div>
+
+    <div class="card">
+
+      <h2>Resumo do pedido</h2>
+
+      <div class="summary">
+
+        <p>
+          Operadora:
+          <strong id="resumoOperadora">Unitel</strong>
+        </p>
+
+        <p>
+          Número:
+          <strong id="resumoNumero">---</strong>
+        </p>
+
+        <p>
+          Valor:
+          <strong id="resumoValor">---</strong>
+        </p>
+
+      </div>
+
+      <button class="whatsapp-btn" onclick="enviarWhatsApp()">
+        💬 PEDIR RECARGA PELO WHATSAPP
+      </button>
+
+    </div>
+
+    <div class="card info">
+
+      <p>
+        Após enviar o pedido, um atendente do
+        <strong>KAMBA RECARGAS</strong> irá confirmar
+        o pagamento e realizar a recarga.
+      </p>
+
+      <br>
+
+      <p>
+        ⚡ Atendimento rápido<br>
+        🔒 Processo simples e seguro<br>
+        📲 Pedido diretamente pelo WhatsApp
+      </p>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 KAMBA RECARGAS — Todos os direitos reservados.
+  </footer>
+
+
+  <script>
+
+    let operadora = "Unitel";
+    let valor = 0;
+
+
+    function selecionarOperadora(nome, elemento) {
+
+      operadora = nome;
+
+      document.querySelectorAll(".operator").forEach(function(item) {
+        item.classList.remove("active");
+      });
+
+      elemento.classList.add("active");
+
+      atualizarResumo();
+    }
+
+
+    function selecionarValor(valorSelecionado, elemento) {
+
+      valor = valorSelecionado;
+
+      document.querySelectorAll(".value-btn").forEach(function(item) {
+        item.classList.remove("active");
+      });
+
+      elemento.classList.add("active");
+
+      document.getElementById("valorPersonalizado").value = "";
+
+      atualizarResumo();
+    }
+
+
+    function valorPersonalizado() {
+
+      const campo = document.getElementById("valorPersonalizado");
+
+      if (campo.value !== "") {
+
+        valor = Number(campo.value);
+
+        document.querySelectorAll(".value-btn").forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+      } else {
+
+        valor = 0;
+
+      }
+
+      atualizarResumo();
+    }
+
+
+    function atualizarResumo() {
+
+      const numero = document.getElementById("numero").value;
+
+      document.getElementById("resumoOperadora").textContent =
+        operadora;
+
+      document.getElementById("resumoNumero").textContent =
+        numero || "---";
+
+      document.getElementById("resumoValor").textContent =
+        valor > 0
+        ? valor.toLocaleString("pt-AO") + " Kz"
+        : "---";
+    }
+
+
+    function enviarWhatsApp() {
+
+      const numero = document.getElementById("numero").value.trim();
+
+      if (numero === "") {
+
+        alert("Por favor, indique o número que deseja recarregar.");
+
+        document.getElementById("numero").focus();
+
+        return;
+      }
+
+
+      if (valor <= 0) {
+
+        alert("Por favor, escolha ou indique o valor da recarga.");
+
+        return;
+      }
+
+
+      /*
+       * COLOQUE AQUI O NÚMERO DE WHATSAPP DO KAMBA RECARGAS.
+       *
+       * Exemplo:
+       * 244923123456
+       */
+
+      const whatsapp = "244948253347";
+
+
+      const mensagem =
+        "Olá, KAMBA RECARGAS!%0A%0A" +
+        "Quero solicitar uma recarga.%0A%0A" +
+        "📱 Operadora: " + operadora + "%0A" +
+        "📞 Número: " + numero + "%0A" +
+        "💰 Valor: " +
+        valor.toLocaleString("pt-AO") +
+        " Kz%0A%0A" +
+        "Aguardo a confirmação. Obrigado!";
+
+
+      const url =
+        "https://wa.me/" +
+        whatsapp +
+        "?text=" +
+        mensagem;
+
+
+      window.open(url, "_blank");
+    }
+
+  </script>
+
+</body>
+</html>
